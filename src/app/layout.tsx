@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import 'nhsuk-frontend/dist/nhsuk/index.scss';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -12,7 +13,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body suppressHydrationWarning>
+        <script>
+          document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? '
+          nhsuk-frontend-supported' : '');
+        </script>
+        {children}
+      </body>
     </html>
   );
 }
