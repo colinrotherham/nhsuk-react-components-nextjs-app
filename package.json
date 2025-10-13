@@ -17,6 +17,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "prettier": "^3.6.2",
+    "sass-embedded": "^1.93.2",
     "typescript": "^5"
   }
 }
