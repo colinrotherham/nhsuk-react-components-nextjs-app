@@ -1,8 +1,8 @@
 module.exports = {
   printWidth: 100,
-  quoteProps: "consistent",
+  quoteProps: 'consistent',
   semi: true,
-  singleQuote: false,
+  singleQuote: true,
   tabWidth: 2,
-  trailingComma: "all",
+  trailingComma: 'all',
 };
