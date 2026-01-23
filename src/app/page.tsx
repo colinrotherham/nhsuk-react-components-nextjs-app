@@ -1,9 +1,10 @@
 import {
   ActionLink,
   BackLink,
+  BodyText,
   Button,
   Card,
-  CardContent,
+  CardAction,
   CardDescription,
   CardGroup,
   CardGroupItem,
@@ -12,6 +13,8 @@ import {
   CharacterCount,
   Checkboxes,
   CheckboxesItem,
+  Col,
+  Container,
   ContentsList,
   ContentsListItem,
   DateInput,
@@ -28,7 +31,9 @@ import {
   ErrorSummaryListItem,
   ErrorSummaryTitle,
   Fieldset,
+  FileUpload,
   Footer,
+  FooterContent,
   FooterCopyright,
   FooterList,
   FooterListItem,
@@ -40,6 +45,7 @@ import {
   HeaderNavigation,
   HeaderNavigationItem,
   HeaderSearch,
+  Heading,
   InsetText,
   Legend,
   NavAZ,
@@ -50,15 +56,18 @@ import {
   NotificationBannerTitle,
   Pagination,
   PaginationLink,
+  PaginationItem,
   Panel,
   PanelTitle,
+  PasswordInput,
   Radios,
   RadiosItem,
+  Row,
   Select,
   SelectOption,
   SkipLink,
   SummaryList,
-  SummaryListActions,
+  SummaryListAction,
   SummaryListKey,
   SummaryListRow,
   SummaryListValue,
@@ -72,6 +81,7 @@ import {
   TabsList,
   TabsListItem,
   TabsTitle,
+  Tag,
   Textarea,
   TextInput,
   WarningCallout,
@@ -112,35 +122,31 @@ export default function Home() {
         </HeaderNavigation>
       </Header>
 
-      <div className="nhsuk-width-container">
+      <Container>
         <BackLink href="/test">Back</BackLink>
 
         <main className="nhsuk-main-wrapper" id="maincontent">
-          <div className="nhsuk-grid-row">
-            <div className="nhsuk-grid-column-two-thirds">
+          <Row>
+            <Col width="two-thirds">
               <CardGroup>
                 <CardGroupItem width="one-half">
                   <Card clickable>
-                    <CardContent>
-                      <CardHeading className="nhsuk-heading-m">
-                        <CardLink href="#">Introduction to care and support</CardLink>
-                      </CardHeading>
-                      <CardDescription>
-                        A quick guide for people who have care and support needs and their carers
-                      </CardDescription>
-                    </CardContent>
+                    <CardHeading size="m">
+                      <CardLink href="#">Introduction to care and support</CardLink>
+                    </CardHeading>
+                    <CardDescription>
+                      A quick guide for people who have care and support needs and their carers
+                    </CardDescription>
                   </Card>
                 </CardGroupItem>
                 <CardGroupItem width="one-half">
                   <Card clickable>
-                    <CardContent>
-                      <CardHeading className="nhsuk-heading-m">
-                        <CardLink href="#">Help from social services and charities</CardLink>
-                      </CardHeading>
-                      <CardDescription>
-                        Includes helplines, needs assessments, advocacy and reporting abuse
-                      </CardDescription>
-                    </CardContent>
+                    <CardHeading size="m">
+                      <CardLink href="#">Help from social services and charities</CardLink>
+                    </CardHeading>
+                    <CardDescription>
+                      Includes helplines, needs assessments, advocacy and reporting abuse
+                    </CardDescription>
                   </Card>
                 </CardGroupItem>
               </CardGroup>
@@ -190,7 +196,7 @@ export default function Home() {
                     id="address-postcode"
                     name="addressPostcode"
                     autoComplete="postal-code"
-                    className="nhsuk-input--width-10"
+                    width="10"
                   />
                 </Fieldset>
 
@@ -212,6 +218,10 @@ export default function Home() {
                   maxLength={200}
                   rows={5}
                 />
+
+                <FileUpload label="Upload a file" labelProps={{ size: 'l' }} id="file-upload" />
+
+                <PasswordInput label="Password" labelProps={{ size: 'l' }} id="password" />
 
                 <Checkboxes
                   legend="What is your nationality?"
@@ -245,7 +255,7 @@ export default function Home() {
                   id="standard-example"
                 >
                   <RadiosItem value="yes">Yes</RadiosItem>
-                  <RadiosItem value="no" checked>
+                  <RadiosItem value="no" defaultChecked>
                     No
                   </RadiosItem>
                 </Radios>
@@ -347,7 +357,7 @@ export default function Home() {
               <InsetText>
                 <p>
                   You can report any suspected side effect to the{' '}
-                  <a href="https://yellowcard.mhra.gov.uk/" title="External website">
+                  <a href="https://yellowcardmhra.gov.uk/" title="External website">
                     UK safety scheme
                   </a>
                   .
@@ -409,22 +419,16 @@ export default function Home() {
                 <SummaryListRow>
                   <SummaryListKey>Name</SummaryListKey>
                   <SummaryListValue>Sarah Philips</SummaryListValue>
-                  <SummaryListActions>
-                    <a href="#">
-                      Change
-                      <span className="nhsuk-u-visually-hidden"> name</span>
-                    </a>
-                  </SummaryListActions>
+                  <SummaryListAction href="#" visuallyHiddenText="name">
+                    Change
+                  </SummaryListAction>
                 </SummaryListRow>
                 <SummaryListRow>
                   <SummaryListKey>Date of birth</SummaryListKey>
                   <SummaryListValue>5 January 1978</SummaryListValue>
-                  <SummaryListActions>
-                    <a href="#">
-                      Change
-                      <span className="nhsuk-u-visually-hidden"> date of birth</span>
-                    </a>
-                  </SummaryListActions>
+                  <SummaryListAction href="#" visuallyHiddenText="date of birth">
+                    Change
+                  </SummaryListAction>
                 </SummaryListRow>
                 <SummaryListRow>
                   <SummaryListKey>Contact information</SummaryListKey>
@@ -435,12 +439,9 @@ export default function Home() {
                     <br />
                     SE23 6FH
                   </SummaryListValue>
-                  <SummaryListActions>
-                    <a href="#">
-                      Change
-                      <span className="nhsuk-u-visually-hidden"> contact information</span>
-                    </a>
-                  </SummaryListActions>
+                  <SummaryListAction href="#" visuallyHiddenText="contact information">
+                    Change
+                  </SummaryListAction>
                 </SummaryListRow>
                 <SummaryListRow>
                   <SummaryListKey>Contact details</SummaryListKey>
@@ -448,12 +449,9 @@ export default function Home() {
                     <p>07700 900457</p>
                     <p>sarah.phillips@example.com</p>
                   </SummaryListValue>
-                  <SummaryListActions>
-                    <a href="#">
-                      Change
-                      <span className="nhsuk-u-visually-hidden"> contact details</span>
-                    </a>
-                  </SummaryListActions>
+                  <SummaryListAction href="#" visuallyHiddenText="contact details">
+                    Change
+                  </SummaryListAction>
                 </SummaryListRow>
               </SummaryList>
 
@@ -509,53 +507,89 @@ export default function Home() {
                 </p>
               </WarningCallout>
 
+              <Card feature>
+                <CardHeading size="m">Flu: Follow-up requested</CardHeading>
+                <BodyText>
+                  Sarah Philips (Mum) would like to speak to a member of the team about other
+                  options for their child&apos;s vaccination.
+                </BodyText>
+                <Button href="#" secondary>
+                  Record a new consent response
+                </Button>
+                <Heading headingLevel="h3" size="s">
+                  Consent responses
+                </Heading>
+                <Card clickable>
+                  <CardHeading headingLevel="h4">
+                    <CardLink href="#">Sarah Philips (Mum)</CardLink>
+                  </CardHeading>
+                  <SummaryList>
+                    <SummaryListRow>
+                      <SummaryListKey>Name</SummaryListKey>
+                      <SummaryListValue>Sarah Philips</SummaryListValue>
+                    </SummaryListRow>
+                    <SummaryListRow>
+                      <SummaryListKey>Date</SummaryListKey>
+                      <SummaryListValue>25 August 2025 at 4:04 pm</SummaryListValue>
+                    </SummaryListRow>
+                    <SummaryListRow noBorder>
+                      <SummaryListKey>Response</SummaryListKey>
+                      <SummaryListValue>
+                        <Tag modifier="orange">Follow up requested</Tag>
+                      </SummaryListValue>
+                    </SummaryListRow>
+                  </SummaryList>
+                </Card>
+              </Card>
+
               <Pagination>
-                <PaginationLink href="/section/treatments" previous>
-                  Treatments
-                </PaginationLink>
-                <PaginationLink href="/section/symptoms" next>
-                  Symptoms
-                </PaginationLink>
+                <PaginationItem href="/section/treatments" labelText="Treatments" previous />
+                <PaginationItem href="/section/symptoms" labelText="Symptoms" next />
               </Pagination>
-            </div>
-          </div>
+
+              <Pagination>
+                <PaginationLink href="/results?page=1" previous />
+                <PaginationItem href="/results?page=1" number={1} />
+                <PaginationItem href="/results?page=2" number={2} current />
+                <PaginationItem href="/results?page=3" number={3} />
+                <PaginationLink href="/results?page=3" next />
+              </Pagination>
+            </Col>
+          </Row>
         </main>
-      </div>
+      </Container>
 
-      <Footer>
-        <FooterList>
-          <FooterListItem href="#">Home</FooterListItem>
-          <FooterListItem href="#">Health A to Z</FooterListItem>
-          <FooterListItem href="#">Live Well</FooterListItem>
-          <FooterListItem href="#">Mental health</FooterListItem>
-          <FooterListItem href="#">Care and support</FooterListItem>
-          <FooterListItem href="#">Accessibility statement</FooterListItem>
-          <FooterListItem href="#">Pregnancy</FooterListItem>
-          <FooterListItem href="#">NHS services</FooterListItem>
-          <FooterListItem href="#">Coronavirus (COVID-19)</FooterListItem>
-        </FooterList>
-
-        <FooterList>
-          <FooterListItem href="#">NHS App</FooterListItem>
-          <FooterListItem href="#">Find my NHS number</FooterListItem>
-          <FooterListItem href="#">Your health records</FooterListItem>
-          <FooterListItem href="#">About the NHS</FooterListItem>
-          <FooterListItem href="#">Healthcare abroad</FooterListItem>
-        </FooterList>
-
-        <FooterList>
+      <Footer columns="3">
+        <FooterList width="one-quarter">
+          <FooterListItem href="#">About us</FooterListItem>
           <FooterListItem href="#">Give us feedback</FooterListItem>
-          <FooterListItem href="#">Other NHS websites</FooterListItem>
-          <FooterListItem href="#">Profile editor login</FooterListItem>
+          <FooterListItem href="#">Accessibility statement</FooterListItem>
         </FooterList>
+
+        <FooterList width="one-quarter">
+          <FooterListItem href="#">Cookies</FooterListItem>
+          <FooterListItem href="#">Privacy policy</FooterListItem>
+          <FooterListItem href="#">Terms and conditions</FooterListItem>
+        </FooterList>
+
+        <FooterContent width="one-half">
+          <BodyText size="s" className="nhsuk-u-margin-bottom-6">
+            <strong>Manchester University NHS Foundation Trust (MFT)</strong> was formed on 1st
+            October 2017 following the merger of Central Manchester University Hospitals NHS
+            Foundation Trust (CMFT) and University Hospital of South Manchester NHS Foundation Trust
+            (UHSM).
+          </BodyText>
+        </FooterContent>
+
+        <FooterContent width="full">
+          <BodyText size="s">
+            Cobbett House, Manchester University NHS Foundation Trust, Oxford Road, Manchester, M13
+            9WL
+          </BodyText>
+        </FooterContent>
 
         <FooterMeta>
-          <FooterListItem href="#">About us</FooterListItem>
-          <FooterListItem href="#">Accessibility statement</FooterListItem>
-          <FooterListItem href="#">Our policies</FooterListItem>
-          <FooterListItem href="#">Cookies</FooterListItem>
-
-          <FooterCopyright>© Crown Copyright</FooterCopyright>
+          <FooterCopyright>© 2025 – Manchester University NHS Foundation Trust</FooterCopyright>
         </FooterMeta>
       </Footer>
     </>
