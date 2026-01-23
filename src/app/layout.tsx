@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import { type Metadata } from 'next';
 import 'nhsuk-frontend/dist/nhsuk/index.scss';
 
 export const metadata: Metadata = {
