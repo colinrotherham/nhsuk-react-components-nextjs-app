@@ -274,7 +274,7 @@ export default function Home() {
                   </SelectOption>
                 </Select>
 
-                <div className="button-group">
+                <div className="nhsuk-button-group">
                   <Button href="/">Save and continue</Button>
                 </div>
               </Form>
@@ -414,6 +414,23 @@ export default function Home() {
               <Panel>
                 <PanelTitle headingLevel="h2">Booking complete</PanelTitle>
                 We have sent you a confirmation email
+              </Panel>
+
+              <Panel interruption>
+                <PanelTitle headingLevel="h2" size="l">
+                  Jodie Brown had a COVID-19 vaccine less than 3 months ago
+                </PanelTitle>
+                <BodyText>They had a COVID-19 vaccine on 25 September 2025.</BodyText>
+                <BodyText>
+                  For most people, the minimum recommended gap between COVID-19 vaccine doses is 3
+                  months.
+                </BodyText>
+                <div className="nhsuk-button-group">
+                  <Button href="/" reverse>
+                    Continue anyway
+                  </Button>
+                  <a href="#">Cancel</a>
+                </div>
               </Panel>
 
               <SummaryList noBorder>
