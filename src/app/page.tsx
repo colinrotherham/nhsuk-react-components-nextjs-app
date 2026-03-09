@@ -9,6 +9,7 @@ import {
   CardGroup,
   CardGroupItem,
   CardHeading,
+  CardImage,
   CardLink,
   CharacterCount,
   Checkboxes,
@@ -540,6 +541,108 @@ export default function Home() {
                     </SummaryListRow>
                   </SummaryList>
                 </Card>
+              </Card>
+
+              <Card>
+                <CardHeading size="m">Regional Manager</CardHeading>
+                <CardAction href="#/delete">Delete</CardAction>
+                <CardAction href="#/withdraw">Withdraw</CardAction>
+                <SummaryList>
+                  <SummaryListRow>
+                    <SummaryListKey>Name</SummaryListKey>
+                    <SummaryListValue>Karen Francis</SummaryListValue>
+                    <SummaryListAction href="#" visuallyHiddenText="name">
+                      Change
+                    </SummaryListAction>
+                  </SummaryListRow>
+                  <SummaryListRow>
+                    <SummaryListKey>Date of birth</SummaryListKey>
+                    <SummaryListValue>15 March 1984</SummaryListValue>
+                    <SummaryListAction href="#" visuallyHiddenText="date of birth">
+                      Change
+                    </SummaryListAction>
+                  </SummaryListRow>
+                  <SummaryListRow>
+                    <SummaryListKey>Contact information</SummaryListKey>
+                    <SummaryListValue>
+                      73 Roman Rd
+                      <br />
+                      Leeds
+                      <br />
+                      LS2 5ZN
+                    </SummaryListValue>
+                    <SummaryListAction href="#" visuallyHiddenText="contact information">
+                      Change
+                    </SummaryListAction>
+                  </SummaryListRow>
+                  <SummaryListRow>
+                    <SummaryListKey>Contact details</SummaryListKey>
+                    <SummaryListValue>
+                      <BodyText>07700 900362</BodyText>
+                      <BodyText>karen.francis@example.com</BodyText>
+                    </SummaryListValue>
+                    <SummaryListAction href="#" visuallyHiddenText="contact details">
+                      Add
+                    </SummaryListAction>
+                    <SummaryListAction href="#" visuallyHiddenText="contact details">
+                      Change
+                    </SummaryListAction>
+                  </SummaryListRow>
+                  <SummaryListRow>
+                    <SummaryListKey>Medicines</SummaryListKey>
+                    <SummaryListValue>
+                      <BodyText>Isotretinoin capsules (Roaccutane)</BodyText>
+                      <BodyText>Isotretinoin gel (Isotrex)</BodyText>
+                      <BodyText>Pepto-Bismol (bismuth subsalicylate)</BodyText>
+                    </SummaryListValue>
+                    <SummaryListAction href="#" visuallyHiddenText="medicines">
+                      Add
+                    </SummaryListAction>
+                    <SummaryListAction href="#" visuallyHiddenText="medicines">
+                      Change
+                    </SummaryListAction>
+                  </SummaryListRow>
+                </SummaryList>
+              </Card>
+
+              <Card cardType="emergency">
+                <CardHeading size="m">Call 999 or go to A&E now if:</CardHeading>
+                <ul>
+                  <li>
+                    you&apos;re coughing up more than just a few spots or streaks of blood – this
+                    could be a sign of serious bleeding in your lungs
+                  </li>
+                  <li>
+                    you have severe difficulty breathing – you&apos;re gasping, choking or not able
+                    to get words out
+                  </li>
+                </ul>
+                <ActionLink href="#" reverse>
+                  Find your nearest A&E
+                </ActionLink>
+              </Card>
+
+              <Card>
+                <CardImage
+                  src="https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg"
+                  alt=""
+                />
+                <CardHeading size="m">
+                  <CardLink href="https://digital.nhs.uk/blog/design-matters/2025/why-we-are-reinvesting-in-the-nhs-prototype-kit">
+                    Why we are reinvesting in the NHS prototype kit
+                  </CardLink>
+                </CardHeading>
+                <BodyText className="nhsuk-body-s nhsuk-u-secondary-text-colour nhsuk-u-margin-bottom-0">
+                  <span className="nhsuk-u-visually-hidden">Published on: </span>21 July 2025
+                </BodyText>
+                <BodyText className="nhsuk-body-s nhsuk-u-font-weight-bold">
+                  NHS England Design Matters blog
+                </BodyText>
+                <CardDescription>
+                  Frankie Roberto and Mike Gallagher explain why we revived the NHS prototype kit,
+                  the benefits of prototyping in code and how digital teams in the NHS can get
+                  started using it.
+                </CardDescription>
               </Card>
 
               <Pagination>
