@@ -228,8 +228,8 @@ export default function Home() {
                   legend="What is your nationality?"
                   legendProps={{ size: 'l' }}
                   hint="If you have more than 1 nationality, select all options that are relevant to you"
-                  name="nationality"
                   id="nationality"
+                  name="nationality"
                 >
                   <CheckboxesItem value="british">British</CheckboxesItem>
                   <CheckboxesItem value="irish">Irish</CheckboxesItem>
@@ -252,8 +252,8 @@ export default function Home() {
                   legend="Have you changed your name?"
                   legendProps={{ size: 'l' }}
                   hint="This includes changing your last name or spelling your name differently"
-                  name="example"
                   id="standard-example"
+                  name="example"
                 >
                   <RadiosItem value="yes">Yes</RadiosItem>
                   <RadiosItem value="no" defaultChecked>
