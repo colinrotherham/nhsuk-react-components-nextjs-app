@@ -87,7 +87,41 @@ import {
   TextInput,
   WarningCallout,
   WarningCalloutHeading,
+  type TextInputProps,
 } from 'nhsuk-react-components';
+
+export const ExampleEmail = (args: TextInputProps) => (
+  <TextInput
+    label="Email address"
+    id="contact-by-email"
+    name="contactByEmail"
+    className="nhsuk-u-width-two-thirds"
+    spellCheck="false"
+    {...args}
+  />
+);
+
+export const ExamplePhoneNumber = (args: TextInputProps) => (
+  <TextInput
+    label="Phone number"
+    id="contact-by-phone"
+    name="contactByPhone"
+    type="tel"
+    className="nhsuk-u-width-two-thirds"
+    {...args}
+  />
+);
+
+export const ExampleMobilePhoneNumber = (args: TextInputProps) => (
+  <TextInput
+    label="Mobile phone number"
+    id="contact-by-text"
+    name="contactByText"
+    type="tel"
+    className="nhsuk-u-width-two-thirds"
+    {...args}
+  />
+);
 
 export default function Home() {
   return (
@@ -236,6 +270,32 @@ export default function Home() {
                   <CheckboxesItem value="other">Citizen of another country</CheckboxesItem>
                 </Checkboxes>
 
+                <Checkboxes
+                  legend="How do you want to be contacted about this?"
+                  legendProps={{ isPageHeading: true, size: 'l' }}
+                  hint="Select all options that are relevant to you"
+                  id="contact-checkboxes"
+                  name="contactCheckboxes"
+                >
+                  <CheckboxesItem
+                    value="email"
+                    conditional={<ExampleEmail defaultValue="karen.francis@example.com" />}
+                    defaultChecked
+                  >
+                    Email
+                  </CheckboxesItem>
+                  <CheckboxesItem value="phone" conditional={<ExamplePhoneNumber />}>
+                    Phone
+                  </CheckboxesItem>
+                  <CheckboxesItem
+                    value="text"
+                    conditional={<ExampleMobilePhoneNumber defaultValue="07700 900362" />}
+                    defaultChecked
+                  >
+                    Text message
+                  </CheckboxesItem>
+                </Checkboxes>
+
                 <DateInput
                   hint="For example, 15 3 1984"
                   legend="What is your date of birth?"
@@ -249,15 +309,24 @@ export default function Home() {
                 </DateInput>
 
                 <Radios
-                  legend="Have you changed your name?"
-                  legendProps={{ size: 'l' }}
-                  hint="This includes changing your last name or spelling your name differently"
-                  id="standard-example"
-                  name="example"
+                  legend="How do you want to be contacted about this?"
+                  legendProps={{ isPageHeading: true, size: 'l' }}
+                  hint="Select 1 option"
+                  id="contact-radios"
+                  name="contactRadios"
                 >
-                  <RadiosItem value="yes">Yes</RadiosItem>
-                  <RadiosItem value="no" defaultChecked>
-                    No
+                  <RadiosItem
+                    value="email"
+                    conditional={<ExampleEmail defaultValue="karen.francis@example.com" />}
+                    defaultChecked
+                  >
+                    Email
+                  </RadiosItem>
+                  <RadiosItem value="phone" conditional={<ExamplePhoneNumber />}>
+                    Phone
+                  </RadiosItem>
+                  <RadiosItem value="text" conditional={<ExampleMobilePhoneNumber />}>
+                    Text message
                   </RadiosItem>
                 </Radios>
 
